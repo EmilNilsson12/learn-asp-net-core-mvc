@@ -22,14 +22,32 @@ namespace ExploreCaliforniaApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Creates a new instance everytime a class makes a request
+            //services.AddTransient
+
+            // Creates only one instance for each web request
+            //services.AddScoped
+
+            // Creates only one instance for the entire lifespan of the application
+            // Usefull when several users should have access to common data
+            // services.AddSingleton
+
+            services.AddTransient<FeatureToggles>(x => new FeatureToggles
+            {
+                DeveloperExceptions = configuration.GetValue<bool>("FeatureToggles:DeveloperExceptions")
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(
+            IApplicationBuilder app,
+            IWebHostEnvironment env,
+            FeatureToggles features)
         {
             app.UseExceptionHandler("/error.html");
 
-            if (configuration.GetValue<bool>("FeatureToggles:DeveloperExceptions"))
+            //if (configuration.GetValue<bool>("FeatureToggles:DeveloperExceptions"))
+            if (features.DeveloperExceptions)
             {
                 app.UseDeveloperExceptionPage();
             }

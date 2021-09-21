@@ -18,3 +18,4 @@ E:\Visual Studio repos\Building SPA Using ASP.NET Core JavaScriptServices\Explor
 E:\Visual Studio repos\Building SPA Using ASP.NET Core JavaScriptServices\ExploreCaliforniaApp\ExploreCaliforniaApp\obj\Release\netcoreapp3.1\ExploreCaliforniaApp.dll
 E:\Visual Studio repos\Building SPA Using ASP.NET Core JavaScriptServices\ExploreCaliforniaApp\ExploreCaliforniaApp\obj\Release\netcoreapp3.1\ExploreCaliforniaApp.pdb
 E:\Visual Studio repos\Building SPA Using ASP.NET Core JavaScriptServices\ExploreCaliforniaApp\ExploreCaliforniaApp\obj\Release\netcoreapp3.1\ExploreCaliforniaApp.genruntimeconfig.cache
+E:\Visual Studio repos\Building SPA Using ASP.NET Core JavaScriptServices\ExploreCaliforniaApp\ExploreCaliforniaApp\obj\Release\netcoreapp3.1\ExploreCaliforniaApp.csproj.AssemblyReference.cache
