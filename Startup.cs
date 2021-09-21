@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +37,9 @@ namespace ExploreCaliforniaApp
             {
                 DeveloperExceptions = configuration.GetValue<bool>("FeatureToggles:DeveloperExceptions")
             });
+
+            // Added to allow UseMvc inside Configure
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +62,9 @@ namespace ExploreCaliforniaApp
                     throw new Exception("ERROR!");
 
                 await next();
+            });
+            app.UseMvc(routes => {
+                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseFileServer();
