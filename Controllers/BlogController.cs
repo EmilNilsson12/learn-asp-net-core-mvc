@@ -14,9 +14,10 @@ namespace ExploreCaliforniaApp.Controllers
             return new ContentResult { Content = "BlogController!" };
         }
 
-        public IActionResult Post(string id)
+        [Route("blog/{year:int}/{month:int}/{key}")]
+        public IActionResult Post(int year, int month, string key)
         {
-            return new ContentResult { Content = id };
+            return new ContentResult { Content = string.Format("Year: {0}; Month: {1}; Key:{2}", year, month, key) };
         }
     }
 }
