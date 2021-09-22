@@ -34,5 +34,11 @@ namespace ExploreCaliforniaApp.Controllers
 
             return View(post);
         }
+
+        [Route("blog/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
