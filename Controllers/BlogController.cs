@@ -14,9 +14,9 @@ namespace ExploreCaliforniaApp.Controllers
             return new ContentResult { Content = "BlogController!" };
         }
 
-        public IActionResult Post(string id)
+        public IActionResult Post(int id)
         {
-            return new ContentResult { Content = id };
+            return new ContentResult { Content = id.ToString() };
         }
     }
 }
