@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ExploreCaliforniaApp.Models;
 
 namespace ExploreCaliforniaApp.Controllers
 {
@@ -19,12 +20,19 @@ namespace ExploreCaliforniaApp.Controllers
         public IActionResult Post(int year, int month, string key)
         {
             //return new ContentResult { Content = string.Format("Year: {0}; Month: {1}; Key:{2}", year, month, key) };
+            //ViewBag.Title = "My blog post";
+            //ViewBag.Posted = DateTime.Now;
+            //ViewBag.Author = "Jess Chadwick";
+            //ViewBag.Body = "This is a a great blog post, dont ya think?!";
 
-            ViewBag.Title = "My blog post";
-            ViewBag.Posted = DateTime.Now;
-            ViewBag.Author = "Jess Chadwick";
-            ViewBag.Body = "This is a a great blog post, dont ya think?!";
-            return View();
+            var post = new Post { 
+                Title = "My blog post",
+                Posted = DateTime.Now,
+                Author = "Jess Chadwick",
+                Body = "This is a great blog post, imho..."
+            };
+
+            return View(post);
         }
     }
 }
