@@ -14,11 +14,10 @@ namespace ExploreCaliforniaApp.Controllers
             return new ContentResult { Content = "BlogController!" };
         }
 
-        public IActionResult Post(int id)
+        public IActionResult Post(int id = -1)
         {
-            // will convert id param to default int value: 0
-            // unless id is valid int
-            // then that int will be displayed
+            // Using C# optional parameter syntax
+            // If id is not valid int, it will be changed to -1
             return new ContentResult { Content = id.ToString() };
         }
     }
