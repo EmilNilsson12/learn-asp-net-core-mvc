@@ -14,9 +14,11 @@ namespace ExploreCaliforniaApp.Controllers
             return new ContentResult { Content = "BlogController!" };
         }
 
-        public IActionResult Post(string id)
+        public IActionResult Post(bool id)
         {
-            return new ContentResult { Content = id };
+            // Will convert id to bool
+            // All values except true will return the default bool value: false
+            return new ContentResult { Content = id.ToString() };
         }
     }
 }
