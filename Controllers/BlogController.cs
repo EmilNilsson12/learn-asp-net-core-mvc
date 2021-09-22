@@ -17,6 +17,8 @@ namespace ExploreCaliforniaApp.Controllers
         public IActionResult Post(int id)
         {
             // will convert id param to default int value: 0
+            // unless id is valid int
+            // then that int will be displayed
             return new ContentResult { Content = id.ToString() };
         }
     }
