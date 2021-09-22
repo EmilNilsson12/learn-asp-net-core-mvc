@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExploreCaliforniaApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            return "Hello, ASP.NET Core MVC!";
         }
     }
 }

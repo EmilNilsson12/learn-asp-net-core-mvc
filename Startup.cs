@@ -24,10 +24,11 @@ namespace ExploreCaliforniaApp
         public void ConfigureServices(IServiceCollection services)
         {
             // Creates a new instance everytime a class makes a request
-            //services.AddTransient
+            // services.AddTransient
 
             // Creates only one instance for each web request
-            //services.AddScoped
+            // Multiple classes using the same service will share
+            // services.AddScoped
 
             // Creates only one instance for the entire lifespan of the application
             // Usefull when several users should have access to common data
