@@ -25,7 +25,7 @@ namespace ExploreCaliforniaApp.Controllers
             //ViewBag.Author = "Jess Chadwick";
             //ViewBag.Body = "This is a a great blog post, dont ya think?!";
 
-            var post = new Post { 
+            var post = new Post {
                 Title = "My blog post",
                 Posted = DateTime.Now,
                 Author = "Jess Chadwick",
@@ -35,9 +35,17 @@ namespace ExploreCaliforniaApp.Controllers
             return View(post);
         }
 
-        [Route("blog/create")]
+        [HttpGet, Route("blog/create")]
         public IActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost, Route("blog/create")]
+        public IActionResult Create(Post post)
+        {
+            post.Author = User.Identity.Name;
+            post.Posted = DateTime.Now;
             return View();
         }
     }
