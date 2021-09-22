@@ -9,9 +9,9 @@ namespace ExploreCaliforniaApp.Controllers
     public class HomeController
     {
         // GET: /<controller>/
-        public string Index()
+        public IActionResult Index()
         {
-            return "Hello, ASP.NET Core MVC!";
+            return new ContentResult { Content = "Hello, ASP.NET Core MVC!" };
         }
     }
 }

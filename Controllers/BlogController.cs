@@ -9,9 +9,9 @@ namespace ExploreCaliforniaApp.Controllers
     public class BlogController
     {
         // GET: /<controller>/
-        public string Index()
+        public IActionResult Index()
         {
-            return "BlogController!";
+            return new ContentResult { Content = "BlogController!" };
         }
     }
 }
