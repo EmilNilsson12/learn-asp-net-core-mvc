@@ -44,6 +44,7 @@ namespace ExploreCaliforniaApp.Controllers
         [HttpPost, Route("blog/create")]
         public IActionResult Create(Post post)
         {
+            // Override Author and Posted with values that the User cannot change
             post.Author = User.Identity.Name;
             post.Posted = DateTime.Now;
             return View();
