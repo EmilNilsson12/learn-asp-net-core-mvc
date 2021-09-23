@@ -42,10 +42,8 @@ namespace ExploreCaliforniaApp.Controllers
         }
 
         [HttpPost, Route("blog/create")]
-        public IActionResult Create(Post post)
+        public IActionResult Create([Bind("Title", "Body")]Post post)
         {
-            post.Author = User.Identity.Name;
-            post.Posted = DateTime.Now;
             return View();
         }
     }
