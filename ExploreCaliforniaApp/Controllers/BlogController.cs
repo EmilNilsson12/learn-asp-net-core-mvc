@@ -21,7 +21,8 @@ namespace ExploreCaliforniaApp.Controllers
         public IActionResult Index()
         {
             //return new ContentResult { Content = "BlogController!" };
-            return View();
+            var posts = _db.Posts.OrderByDescending(x => x.Posted).Take(5).ToArray();
+            return View(posts);
         }
 
         [Route("blog/{year:min(2000)}/{month:range(1,12)}/{key}")]
