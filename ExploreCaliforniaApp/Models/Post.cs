@@ -2,12 +2,27 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ExploreCaliforniaApp.Models
 {
     public class Post
     {
-        [Display(Name = "Post Tilte")]
+        public long Id { get; set; }
+        private string _key;
+        public string Key
+        {
+            get
+            {
+                if(_key == null)
+                {
+                    _key = Regex.Replace(Title.ToLower(), "[^a-z0-9]", "-");
+                }
+                return _key;
+            }
+            set { _key = value; }
+        }
+        [Display(Name = "Post Title")]
         [Required]
         [DataType(DataType.Text)]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Title must be between 5 and 100 characters long")]

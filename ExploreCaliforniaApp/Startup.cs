@@ -9,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExploreCaliforniaApp.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace ExploreCaliforniaApp
 {
@@ -38,6 +41,15 @@ namespace ExploreCaliforniaApp
             {
                 DeveloperExceptions = configuration.GetValue<bool>("FeatureToggles:DeveloperExceptions")
             });
+
+
+            services.AddDbContext<BlogDataContext>(options =>
+            {
+                var connectionString = configuration.GetConnectionString("BlogDataContext");
+                options.UseSqlServer(connectionString);
+            });
+
+
 
             // Added to allow UseMvc inside Configure
             services.AddMvc(options => options.EnableEndpointRouting = false);
